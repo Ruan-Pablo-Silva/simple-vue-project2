@@ -17,12 +17,21 @@ const handlingForms = {
         return {
             members: window.members,
             newMember: {
+                fname: null,
+                lname: null,
+                instrument: null
+
             },
         };
     },
     methods:{
         addMember: function() {
-            this.members.push(this.newMember);
+            if(this.newMember.fname && this.newMember.lname & this.newMember.instrument !== null ){
+                this.members.push(this.newMember);
+                this.newMember = {}
+            } else{
+                alert("Preencha todos os campos")
+            }
         }
     }
     
